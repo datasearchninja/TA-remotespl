@@ -1,0 +1,59 @@
+<setup>
+
+  <block title="Update Existing Remote Splunk Instances" endpoint="remotespl/conf" entity="*" mode="iter">
+    <input field="uri">
+      <label>Remote Instance URI ($name$)</label>
+      <type>text</type>
+    </input>
+    <input field="username">
+      <label>Username ($name$)</label>
+      <type>text</type>
+    </input>
+    <input field="sslverify">
+      <label>Verify SSL Certificate? ($name$)</label>
+      <type>bool</type>
+    </input>
+  </block>
+
+  <block title="Update Existing credentials" endpoint="storage/passwords" entity="*" mode="iter">
+    <input field="password">
+      <label>Password ($name$)</label>
+      <type>text</type>
+    </input>
+  </block>
+
+  <block title="Create a new Remote Splunk Instance Configuration" endpoint="remotespl/conf" entity="_new">
+    <input field="name">
+      <label>Remote Instance Name</label>
+      <type>text</type>
+    </input>
+    <input field="uri">
+      <label>Remote Instance URI (e.g: https://hostname.domain:8089)</label>
+      <type>text</type>
+    </input>
+    <input field="username">
+      <label>Username</label>
+      <type>text</type>
+    </input>
+    <input field="sslverify">
+      <label>Verify SSL Certificate?</label>
+      <type>bool</type>
+    </input>
+  </block>
+
+  <block title="Add new credentials for Remote Splunk Instance" endpoint="storage/passwords" entity="_new">
+    <input field="realm">
+      <label>Remote Instance Name (Copy name from above)</label>
+      <type>text</type>
+    </input>
+    <input field="name">
+      <label>Username (Copy username from above)</label>
+      <type>text</type>
+    </input>
+    <input field="password">
+      <label>Password</label>
+      <type>password</type>
+    </input>
+  </block>
+
+</setup>
